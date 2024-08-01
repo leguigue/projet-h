@@ -1,0 +1,211 @@
+body {
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+    background: url(../img/naturebackgrounds.jpg) no-repeat center center fixed;
+    background-size: auto;
+
+}
+
+header {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 40px;
+}
+
+h1 {
+    font-family: "Special Elite", system-ui;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    animation: glitch 1s linear infinite;
+}
+
+h1:before,
+h1:after {
+    content: attr(title);
+    position: absolute;
+    left: 0;
+}
+
+h1:before {
+    animation: glitchTop 1s linear infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 33%, 0 33%);
+}
+
+
+
+h1:after {
+    animation: glitchBotom 1.5s linear infinite;
+    clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 67%, 100% 67%, 100% 100%, 0 100%);
+}
+ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav {
+    font-family: "Special Elite", system-ui;
+    text-shadow: 2px 2px 4px #000000;
+    background-color: #072d29d7;
+    width: 50%;
+    padding: 1px;
+    box-shadow: 2px 2px 4px #000000;
+    border-radius: 20px;
+    margin-left: 25%;
+}
+
+nav a {
+    color: #fff;
+    font-size: 18px;
+    margin: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease-in 0s;
+}
+
+nav a:hover {
+    color: #975759;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 0 auto;
+    background-color: #024825ab;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="text"] {
+    font-family: "Special Elite", system-ui;
+    font-size: 15px;
+}
+
+label {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    color: white;
+}
+
+button[type="submit"] {
+    margin-top: 5px;
+    align-items: center;
+    appearance: none;
+    background-color: #FCFCFD;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395A;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 48px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow .15s, transform .15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 15px;
+}
+
+button[type="submit"]:focus {
+    box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+button[type="submit"]:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    transform: translateY(-2px);
+}
+
+button[type="submit"]:active {
+    box-shadow: #D6D6E7 0 3px 7px inset;
+    transform: translateY(2px);
+}
+
+
+footer {
+    font-family: "Libre Barcode 128 Text", system-ui;
+    font-size: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px #000000;
+    background-color: #072d29d7;
+    border-radius: 20px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+@keyframes glitch {
+
+    2%,
+    64% {
+        transform: translate(2px, 0) skew(0deg);
+    }
+
+    4%,
+    60% {
+        transform: translate(-2px, 0) skew(0deg);
+    }
+
+    62% {
+        transform: translate(0, 0) skew(5deg);
+    }
+}
+
+@keyframes glitchTop {
+
+    2%,
+    64% {
+        transform: translate(2px, -2px);
+    }
+
+    4%,
+    60% {
+        transform: translate(-2px, 2px);
+    }
+
+    62% {
+        transform: translate(13px, -1px) skew(-13deg);
+    }
+}
+
+@keyframes glitchBotom {
+
+    2%,
+    64% {
+        transform: translate(-2px, 0);
+    }
+
+    4%,
+    60% {
+        transform: translate(-2px, 0);
+    }
+
+    62% {
+        transform: translate(-22px, 5px) skew(21deg);
+    }
+}
