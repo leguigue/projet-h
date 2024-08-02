@@ -44,7 +44,7 @@ try {
         <?php if (empty($projets)) : ?>
             <p>Vous n'avez pas encore de projets.</p>
         <?php else : ?>
-            <table>
+            <table border="1">
                 <thead>
                     <tr>
                         <th>Image</th>
