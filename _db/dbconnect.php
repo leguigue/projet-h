@@ -17,7 +17,7 @@ class connexionDB {
                 $this->user, $this->pass, array(PDO::MYSQL_ATTR_INIT_COMMAND =>'SET NAMES UTF8', 
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING));
         }catch (PDOException $e){
-            echo 'Erreur : Impossible de se connecter  à la BDD !';
+            echo 'Erreur : Impossible de se connecter à la BDD !';
             die();
         }
     }
@@ -27,5 +27,4 @@ class connexionDB {
 }
 $db = new connexionDB();
 $conn = $db->getConnection();
-
 ?>

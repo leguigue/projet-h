@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     imageInput.addEventListener('change', previewImage);
     form.addEventListener('submit', handleFormSubmit);
 });
+
 function previewImage(e) {
     const file = e.target.files[0];
     if (file) {
@@ -22,6 +23,7 @@ function previewImage(e) {
         reader.readAsDataURL(file);
     }
 }
+
 async function handleFormSubmit(e) {
     e.preventDefault();
     console.log("Formulaire soumis");    
@@ -57,6 +59,7 @@ async function handleFormSubmit(e) {
         submitButton.textContent = 'Ajouter le projet';
     }
 }
+
 function uploadImage(formData) {
     console.log('Uploading image...');
     return fetch('upload.php', {
@@ -70,18 +73,37 @@ function uploadImage(formData) {
     .then(data => {
         console.log('Upload response data:', data);
         return data;
+    })
+    .catch(error => {
+        console.error('Error in uploadImage:', error);
+        throw error;
     });
 }
+
+function handleResponse(response) {
+    return response.text().then(text => {
+        try {
+            return JSON.parse(text);
+        } catch (e) {
+            console.error('Invalid JSON:', text);
+            throw new Error('Invalid server response');
+        }
+    }).then(data => {
+        if (!data.success) {
+            throw new Error(data.error || 'Unknown error');
+        }
+        return data;
+    });
+}
+
 function submitForm(formData) {
     return fetch('processproject.php', {
         method: 'POST',
         body: formData
     })
-    .then(handleResponse);
-}
-function handleResponse(response) {
-    if (!response.ok) {
-        return response.text().then(text => { throw new Error(text) });
-    }
-    return response.json();
+    .then(handleResponse)
+    .catch(error => {
+        console.error('Error in submitForm:', error);
+        throw error;
+    });
 }
